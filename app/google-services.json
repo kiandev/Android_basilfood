@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "524191807812",
+    "firebase_url": "https://basilfood-945de.firebaseio.com",
+    "project_id": "basilfood-945de",
+    "storage_bucket": "basilfood-945de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524191807812:android:e92e662d8ccfd6d3a0bf11",
+        "android_client_info": {
+          "package_name": "com.basilgroup.basilfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524191807812-4kfj165bqtr4avrasenh0r1r5ttg0rac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu72D7Izm4oWSfKFelBewCtUgD7bfunmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524191807812-4kfj165bqtr4avrasenh0r1r5ttg0rac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

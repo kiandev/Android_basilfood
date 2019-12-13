@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorWhite"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorTextAllActivity"
+            android:id="@+id/title"
+            android:padding="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp"
+            android:gravity="right"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_user"
+            android:layout_below="@+id/title"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/colorGray700"
+            android:textSize="14sp"
+            android:justificationMode="inter_word"
+            android:gravity="right"
+            android:lineSpacingExtra="6dp"
+            android:fontFamily="@font/light"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/date_user"
+            android:layout_below="@+id/text_user"
+            android:textColor="@color/colorGray600"
+            android:textSize="12sp"
+            android:gravity="right"
+            android:fontFamily="@font/light"
+            android:layout_marginBottom="10dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:id="@+id/line_answer"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorTextAllActivity"
+            android:textColor="@color/colorWhite"
+            android:id="@+id/title_admin"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:padding="5dp"
+            android:text="پیام بازیل فود : "
+            android:textSize="15sp"
+            android:gravity="right"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_admin"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/title_admin"
+            android:textColor="@color/colorGray700"
+            android:textSize="14sp"
+            android:justificationMode="inter_word"
+            android:gravity="right"
+            android:lineSpacingExtra="6dp"
+            android:fontFamily="@font/light"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/date_admin"
+            android:layout_below="@+id/text_admin"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/colorGray600"
+            android:textSize="12sp"
+            android:gravity="right"
+            android:fontFamily="@font/light" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
