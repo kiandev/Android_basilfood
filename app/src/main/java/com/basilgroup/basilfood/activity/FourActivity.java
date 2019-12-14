@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.android.volley.toolbox.Volley;
 import com.basilgroup.basilfood.R;
 import com.basilgroup.basilfood.adapter.FourAdapter;
 import com.basilgroup.basilfood.model.Food;
+import com.basilgroup.basilfood.utils.HttpUrl;
 import com.basilgroup.basilfood.utils.NetTest;
 
 import org.json.JSONArray;
@@ -39,12 +41,16 @@ public class FourActivity extends AppCompatActivity {
     ImageView btnBack;
     TextView txt_title;
     private String id;
+    LinearLayout noData, progreesBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_four);
 
+        progreesBar = findViewById(R.id.progreesBar);
+        noData = findViewById(R.id.noData);
         txt_title = findViewById(R.id.title);
         recyclerView = findViewById(R.id.recycler_view);
         btnBack = findViewById(R.id.btnBack);
@@ -74,11 +80,13 @@ public class FourActivity extends AppCompatActivity {
     }
 
     private void loadFour() {
-        String URL = "http://192.168.23.2:8000/api/four/" + id;
+        String URL = HttpUrl.url +  "four/" + id;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        progreesBar.setVisibility(View.GONE);
+
                         try {
                             JSONArray array = new JSONArray(response);
                             Log.d(TAG, "onResponse: " + response);
@@ -99,6 +107,13 @@ public class FourActivity extends AppCompatActivity {
                                 ));
                             }
                             recyclerView.setAdapter(mAdapter);
+                            if (mAdapter.getItemCount() == 0) {
+                                recyclerView.setVisibility(View.GONE);
+                                noData.setVisibility(View.VISIBLE);
+                            } else {
+                                recyclerView.setVisibility(View.VISIBLE);
+                                noData.setVisibility(View.GONE);
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

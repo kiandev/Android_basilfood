@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:id="@+id/text"
             android:layout_margin="@dimen/text_margin"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:lineSpacingExtra="5dp"
             android:justificationMode="inter_word"
             android:gravity="center|right"

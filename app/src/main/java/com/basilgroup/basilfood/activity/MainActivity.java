@@ -39,6 +39,7 @@ import com.basilgroup.basilfood.adapter.SaladAdapter;
 import com.basilgroup.basilfood.adapter.TypeFourMainAdapter;
 import com.basilgroup.basilfood.model.Food;
 import com.basilgroup.basilfood.model.TypeFour;
+import com.basilgroup.basilfood.utils.HttpUrl;
 import com.basilgroup.basilfood.utils.NetTest;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
@@ -175,11 +176,6 @@ public class MainActivity extends AppCompatActivity {
         mAdapter_kebab = new KebabAdapter(os_version_kebab);
         mAdapter_salad = new SaladAdapter(os_version_salad);
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         if (!NetTest.yes(getApplicationContext())){
             Toast.makeText(this, "لطفا ابتدا دستگاه خود را به اینترنت متصل نمایید", Toast.LENGTH_SHORT).show();
         } else {
@@ -212,6 +208,11 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     class SwipeGestureDetector extends GestureDetector.SimpleOnGestureListener {
@@ -256,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void loadTypeFour() {
-        String URL = "http://192.168.23.2:8000/api/typefour";
+        String URL = HttpUrl.url + "typefour";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
                 new Response.Listener<String>() {
                     @Override
@@ -292,7 +293,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadPizza() {
-        String URL = "http://192.168.23.2:8000/api/pizza";
+        String URL = HttpUrl.url + "pizza";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
                 new Response.Listener<String>() {
                     @Override
@@ -335,7 +336,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadKebab() {
-        String URL = "http://192.168.23.2:8000/api/kebab";
+        String URL = HttpUrl.url + "kebab";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
                 new Response.Listener<String>() {
                     @Override
@@ -378,7 +379,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadSalad() {
-        String URL = "http://192.168.23.2:8000/api/salad";
+        String URL = HttpUrl.url + "salad";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
                 new Response.Listener<String>() {
                     @Override

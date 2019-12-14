@@ -21,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.basilgroup.basilfood.R;
+import com.basilgroup.basilfood.utils.HttpUrl;
 import com.basilgroup.basilfood.utils.NetTest;
 import com.basilgroup.basilfood.utils.SharedContract;
 
@@ -75,7 +76,7 @@ public class SendMessageActivity extends AppCompatActivity {
                     if (!NetTest.yes(getApplicationContext())){
                         Toast.makeText(SendMessageActivity.this, "لطفا ابتدا دستگاه خود را به اینترنت متصل نمایید", Toast.LENGTH_SHORT).show();
                     } else{
-                        String URL = "http://192.168.23.2:8000/api/message";
+                        String URL = HttpUrl.url + "message";
                         StringRequest stringRequest = new StringRequest(Request.Method.POST,
                                 URL,
                                 new Response.Listener<String>() {

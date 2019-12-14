@@ -48,7 +48,7 @@ public class FoodCategoryAdapter extends RecyclerView.Adapter<FoodCategoryAdapte
                 .load(food.getImage())
                 .placeholder(context.getResources().getDrawable(R.drawable.basifood_logo_placeholder))
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .skipMemoryCache(true)
+                .skipMemoryCache(false)
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(holder.image);
 

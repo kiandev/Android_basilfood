@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -22,6 +23,7 @@ import com.basilgroup.basilfood.adapter.MessageAdapter;
 import com.basilgroup.basilfood.adapter.NewsAdapter;
 import com.basilgroup.basilfood.model.Message;
 import com.basilgroup.basilfood.model.News;
+import com.basilgroup.basilfood.utils.HttpUrl;
 import com.basilgroup.basilfood.utils.NetTest;
 
 import org.json.JSONArray;
@@ -38,12 +40,16 @@ public class MessageActivity extends AppCompatActivity {
     MessageAdapter mAdapter;
     LinearLayoutManager layoutManager;
     ImageView btnBack, btnPlus;
+    LinearLayout noData, progreesBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
+        progreesBar = findViewById(R.id.progreesBar);
+        noData = findViewById(R.id.noData);
         recyclerView = findViewById(R.id.recycler_view);
         btnBack = findViewById(R.id.btnBack);
         recyclerView.setHasFixedSize(true);
@@ -81,11 +87,13 @@ public class MessageActivity extends AppCompatActivity {
     }
 
     private void loadMessage() {
-        String URL = "http://192.168.23.2:8000/api/message";
+        String URL = HttpUrl.url + "message";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        progreesBar.setVisibility(View.GONE);
+
                         try {
                             JSONArray array = new JSONArray(response);
                             Log.d(TAG, "onResponse: " + response);
@@ -105,6 +113,13 @@ public class MessageActivity extends AppCompatActivity {
                                 ));
                             }
                             recyclerView.setAdapter(mAdapter);
+                            if (mAdapter.getItemCount() == 0) {
+                                recyclerView.setVisibility(View.GONE);
+                                noData.setVisibility(View.VISIBLE);
+                            } else {
+                                recyclerView.setVisibility(View.VISIBLE);
+                                noData.setVisibility(View.GONE);
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

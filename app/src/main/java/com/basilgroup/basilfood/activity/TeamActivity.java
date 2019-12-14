@@ -9,6 +9,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.basilgroup.basilfood.classes.GlideApp;
+import com.basilgroup.basilfood.utils.HttpUrl;
 import com.basilgroup.basilfood.utils.NetTest;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
@@ -37,7 +38,7 @@ public class TeamActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         title = findViewById(R.id.title);
@@ -60,7 +61,7 @@ public class TeamActivity extends AppCompatActivity {
     }
 
     public void getdata() {
-        String URL = "http://192.168.23.2:8000/api/team";
+        String URL = HttpUrl.url + "team";
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 URL,
                 new Response.Listener<String>() {

@@ -11,6 +11,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.basilgroup.basilfood.classes.GlideApp;
+import com.basilgroup.basilfood.utils.HttpUrl;
 import com.basilgroup.basilfood.utils.NetTest;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
@@ -143,7 +144,7 @@ public class InfoActivity extends AppCompatActivity {
     }
 
     public void getdata() {
-        String URL = "http://192.168.23.2:8000/api/info";
+        String URL = HttpUrl.url + "info";
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 URL,
                 new Response.Listener<String>() {

@@ -68,7 +68,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
                     }
                 })
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .skipMemoryCache(true)
+                .skipMemoryCache(false)
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(holder.image);
         holder.title.setText(news.getTitle());

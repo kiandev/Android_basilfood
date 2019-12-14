@@ -67,8 +67,8 @@
                 android:justificationMode="inter_word"
                 android:lineSpacingExtra="6dp"
                 android:textColor="@color/colorTextAllActivity"
-                android:textSize="13sp"
-                android:fontFamily="@font/regular"/>
+                android:textSize="14sp"
+                android:fontFamily="@font/light"/>
 
             <TextView
                 android:layout_width="match_parent"
